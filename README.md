@@ -1,16 +1,17 @@
 # kzoubair-maw3id-calculateur-noshow
 
-Calculateur du coût des rendez-vous manqués pour cabinets dentaires — Maw3id par Zellia
+Calculateur du coût des rendez-vous manqués pour cabinets médicaux et dentaires — Maw3id par Zellia
 
 ## Aperçu
 
-`index.html` est une page web autonome (HTML, CSS et JavaScript dans un seul fichier, sans dépendance externe) qui permet à un cabinet dentaire d'estimer :
+`index.html` est une page web autonome (HTML, CSS et JavaScript dans un seul fichier, sans dépendance externe) qui permet à un praticien (cabinet médical ou dentaire) d'estimer :
 
 - le nombre de rendez-vous manqués par mois ;
-- la perte financière mensuelle et annuelle liée aux no-show ;
-- le retour sur investissement d'un forfait annuel (par exemple Maw3id) comparé à cette perte.
+- la perte financière mensuelle et annuelle liée aux rendez-vous manqués ;
+- le retour sur investissement de Maw3id, sur la base d'un forfait mensuel, de frais d'installation ponctuels et d'un taux de réduction des no-show estimé, avec un calcul distinct pour la 1ʳᵉ année et pour le régime établi (années suivantes) ;
+- les bénéfices qualitatifs complémentaires (temps de secrétariat récupéré, liste d'attente, disponibilité 24h/24, multilingue, conformité CNDP, zéro double réservation).
 
-Tous les calculs sont mis à jour en temps réel à la saisie, directement dans le navigateur.
+La perte annuelle est affichée d'emblée ; le détail du coût et du retour sur investissement se dévoile via un bouton dédié, pour pouvoir présenter l'impact avant le prix. Tous les calculs sont mis à jour en temps réel à la saisie, directement dans le navigateur.
 
 ## Ouvrir la page en local
 

@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Calculateur du coût des rendez-vous manqués — Maw3id par Zellia</title>
-<meta name="description" content="Calculez en temps réel le coût des rendez-vous manqués (no-show) de votre cabinet dentaire et le retour sur investissement de Maw3id par Zellia.">
+<meta name="description" content="Calculez en temps réel le coût des rendez-vous manqués (no-show) de votre cabinet médical ou dentaire et le retour sur investissement de Maw3id par Zellia.">
 <style>
   :root {
     --vert-principal: #0F5C4D;
@@ -87,7 +87,7 @@
   }
 
   header.hero p {
-    max-width: 620px;
+    max-width: 640px;
     margin: 0 auto;
     color: #4B5955;
     font-size: 15.5px;
@@ -187,6 +187,14 @@
     cursor: pointer;
   }
 
+  .champ .aide {
+    display: block;
+    font-size: 11.5px;
+    color: #7A8783;
+    font-weight: 400;
+    margin-top: 6px;
+  }
+
   .unite {
     font-size: 12px;
     color: #7A8783;
@@ -251,6 +259,118 @@
     color: var(--rouge-perte);
   }
 
+  /* Section « Et ce n'est pas tout » */
+
+  section.benefices {
+    margin-top: 24px;
+  }
+
+  .benefices-header {
+    text-align: center;
+    margin-bottom: 24px;
+  }
+
+  .benefices-header h2 {
+    color: var(--vert-principal);
+    font-size: 22px;
+    margin: 0 0 8px;
+  }
+
+  .benefices-header p {
+    color: #4B5955;
+    font-size: 14.5px;
+    max-width: 560px;
+    margin: 0 auto;
+  }
+
+  .benefices-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  @media (max-width: 700px) {
+    .benefices-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .benefice-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    background: var(--fond-creme);
+    border: 1px solid var(--bordure);
+    border-radius: 12px;
+    padding: 16px 18px;
+  }
+
+  .benefice-icone {
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+    background: rgba(37, 211, 102, 0.14);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    flex-shrink: 0;
+  }
+
+  .benefice-texte strong {
+    display: block;
+    font-size: 14px;
+    color: var(--texte-encre);
+    margin-bottom: 3px;
+  }
+
+  .benefice-texte span {
+    font-size: 13px;
+    color: #4B5955;
+  }
+
+  /* Bouton de bascule ROI */
+
+  .toggle-wrapper {
+    text-align: center;
+    margin-top: 32px;
+  }
+
+  .btn-toggle-roi {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 28px;
+    border-radius: 999px;
+    border: 1.5px solid var(--vert-principal);
+    background: var(--blanc);
+    color: var(--vert-principal);
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.2s ease, color 0.2s ease, transform 0.15s ease;
+  }
+
+  .btn-toggle-roi:hover {
+    background: var(--vert-principal);
+    color: var(--blanc);
+  }
+
+  .btn-toggle-roi:active {
+    transform: scale(0.98);
+  }
+
+  .btn-toggle-roi .chevron {
+    transition: transform 0.25s ease;
+    display: inline-block;
+  }
+
+  .btn-toggle-roi.ouvert .chevron {
+    transform: rotate(180deg);
+  }
+
+  /* Section ROI */
+
   section.roi {
     margin-top: 24px;
   }
@@ -269,13 +389,28 @@
   .roi-header p {
     color: #4B5955;
     font-size: 14.5px;
-    max-width: 560px;
+    max-width: 620px;
     margin: 0 auto;
+  }
+
+  .roi-inputs-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 28px;
+    padding-bottom: 28px;
+    border-bottom: 1px solid var(--bordure);
+  }
+
+  @media (max-width: 820px) {
+    .roi-inputs-grid {
+      grid-template-columns: 1fr;
+    }
   }
 
   .roi-grid {
     display: grid;
-    grid-template-columns: 1fr 1.2fr;
+    grid-template-columns: 1fr 1fr;
     gap: 24px;
   }
 
@@ -322,19 +457,44 @@
     background: var(--rouge-perte);
   }
 
-  .barre-fill.forfait {
+  .barre-fill.evitee {
     background: var(--vert-accent);
+  }
+
+  .barre-fill.forfait {
+    background: var(--vert-principal);
+  }
+
+  .roi-resultats-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  @media (max-width: 480px) {
+    .roi-resultats-grid {
+      grid-template-columns: 1fr;
+    }
   }
 
   .roi-resultat {
     background: var(--vert-principal);
     border-radius: 16px;
-    padding: 26px;
+    padding: 22px;
     color: var(--blanc);
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: 18px;
+    gap: 14px;
+  }
+
+  .roi-resultat .roi-titre {
+    text-align: center;
+    font-size: 13px;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.85);
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
   }
 
   .roi-resultat .roi-chiffre {
@@ -342,14 +502,14 @@
   }
 
   .roi-resultat .roi-chiffre .valeur {
-    font-size: 40px;
+    font-size: 34px;
     font-weight: 800;
     color: var(--vert-accent);
     line-height: 1;
   }
 
   .roi-resultat .roi-chiffre .desc {
-    font-size: 13px;
+    font-size: 12px;
     color: rgba(255, 255, 255, 0.8);
     margin-top: 8px;
   }
@@ -359,7 +519,7 @@
     grid-template-columns: 1fr 1fr;
     gap: 12px;
     border-top: 1px solid rgba(255, 255, 255, 0.18);
-    padding-top: 16px;
+    padding-top: 14px;
   }
 
   .roi-details .item {
@@ -367,24 +527,24 @@
   }
 
   .roi-details .item .n {
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 700;
   }
 
   .roi-details .item .l {
-    font-size: 11px;
+    font-size: 10.5px;
     color: rgba(255, 255, 255, 0.75);
     margin-top: 2px;
   }
 
   .badge-verdict {
     text-align: center;
-    padding: 10px 16px;
+    padding: 8px 14px;
     border-radius: 999px;
     background: var(--vert-accent);
     color: var(--vert-principal);
     font-weight: 800;
-    font-size: 14px;
+    font-size: 12.5px;
   }
 
   footer {
@@ -426,7 +586,7 @@
 
 <header class="hero">
   <h1>Combien vous coûtent vraiment vos rendez-vous manqués ?</h1>
-  <p>Estimez en quelques secondes l'impact financier des no-show dans votre cabinet dentaire, et découvrez le retour sur investissement d'une solution de rappel automatisé.</p>
+  <p>Estimez en quelques secondes l'impact financier des rendez-vous manqués dans votre cabinet médical ou dentaire, et découvrez comment un praticien peut réduire ces pertes et améliorer l'expérience de ses patients grâce à un rappel automatisé des rendez-vous.</p>
 </header>
 
 <main>
@@ -447,7 +607,7 @@
       </div>
 
       <div class="champ">
-        <label for="tauxNoShow">Taux de no-show <span class="valeur-affichee" id="valTauxNoShow">15 %</span></label>
+        <label for="tauxNoShow">Taux de rendez-vous manqués <span class="valeur-affichee" id="valTauxNoShow">15 %</span></label>
         <input type="range" id="tauxNoShow" min="0" max="60" value="15" step="0.5">
         <input type="number" id="tauxNoShowNum" min="0" max="100" value="15" step="0.5" style="margin-top:8px;">
       </div>
@@ -478,16 +638,88 @@
     </div>
   </div>
 
-  <section class="roi card roi-section">
+  <section class="benefices card">
+    <div class="benefices-header">
+      <h2>Et ce n'est pas tout</h2>
+      <p>Au-delà de la perte financière évitée, un système de rappel et de prise de rendez-vous automatisé apporte des bénéfices concrets au quotidien du cabinet.</p>
+    </div>
+    <div class="benefices-grid">
+      <div class="benefice-item">
+        <div class="benefice-icone">⏱️</div>
+        <div class="benefice-texte">
+          <strong>Temps de secrétariat récupéré</strong>
+          <span>Moins d'appels de confirmation et de relance manuelle des patients.</span>
+        </div>
+      </div>
+      <div class="benefice-item">
+        <div class="benefice-icone">🔁</div>
+        <div class="benefice-texte">
+          <strong>Créneaux annulés remplis automatiquement</strong>
+          <span>Une liste d'attente propose le créneau libéré au patient suivant.</span>
+        </div>
+      </div>
+      <div class="benefice-item">
+        <div class="benefice-icone">🌙</div>
+        <div class="benefice-texte">
+          <strong>Disponibilité 24h/24 et 7j/7</strong>
+          <span>Les patients prennent rendez-vous à tout moment, même en dehors des heures d'ouverture.</span>
+        </div>
+      </div>
+      <div class="benefice-item">
+        <div class="benefice-icone">🌍</div>
+        <div class="benefice-texte">
+          <strong>Prise de rendez-vous multilingue</strong>
+          <span>En darija, en arabe ou en français, selon la préférence du patient.</span>
+        </div>
+      </div>
+      <div class="benefice-item">
+        <div class="benefice-icone">🔒</div>
+        <div class="benefice-texte">
+          <strong>Conformité CNDP</strong>
+          <span>Le traitement des données de santé de vos patients respecte la réglementation en vigueur.</span>
+        </div>
+      </div>
+      <div class="benefice-item">
+        <div class="benefice-icone">✅</div>
+        <div class="benefice-texte">
+          <strong>Zéro double réservation</strong>
+          <span>L'agenda du praticien reste toujours synchronisé et cohérent.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="toggle-wrapper">
+    <button type="button" id="btnToggleRoi" class="btn-toggle-roi" aria-expanded="false" aria-controls="roiPanel">
+      <span class="btn-toggle-label">Voir le retour sur investissement</span>
+      <span class="chevron">▾</span>
+    </button>
+  </div>
+
+  <section class="roi card" id="roiPanel" hidden>
     <div class="roi-header">
       <h2>Retour sur investissement de Maw3id</h2>
-      <p>Comparez votre perte annuelle liée aux no-show au coût d'un forfait annuel de rappels automatisés, et visualisez votre retour sur investissement.</p>
+      <p>Renseignez le forfait mensuel, les frais d'installation et le taux de réduction des rendez-vous manqués attendu, pour visualiser la perte évitée et le retour sur investissement du service.</p>
     </div>
 
-    <div class="champ" style="max-width:420px; margin: 0 auto 24px;">
-      <label for="coutForfait">Coût du forfait annuel Maw3id <span class="valeur-affichee" id="valCoutForfait">3 600 MAD</span></label>
-      <input type="range" id="coutForfait" min="0" max="50000" value="3600" step="100">
-      <input type="number" id="coutForfaitNum" min="0" max="1000000" value="3600" step="100" style="margin-top:8px;">
+    <div class="roi-inputs-grid">
+      <div class="champ">
+        <label for="forfaitMensuel">Forfait mensuel Maw3id <span class="valeur-affichee" id="valForfaitMensuel">1 200 MAD</span></label>
+        <input type="range" id="forfaitMensuel" min="0" max="10000" value="1200" step="50">
+        <input type="number" id="forfaitMensuelNum" min="0" max="200000" value="1200" step="50" style="margin-top:8px;">
+      </div>
+
+      <div class="champ">
+        <label for="fraisInstallationNum">Frais d'installation <span class="valeur-affichee" id="valFraisInstallation">4 500 MAD</span></label>
+        <input type="number" id="fraisInstallationNum" min="0" max="500000" value="4500" step="100">
+        <span class="aide">Payés une seule fois, à la mise en place du service.</span>
+      </div>
+
+      <div class="champ">
+        <label for="tauxReduction">Taux de réduction estimé des no-show <span class="valeur-affichee" id="valTauxReduction">70 %</span></label>
+        <input type="range" id="tauxReduction" min="0" max="100" value="70" step="1">
+        <input type="number" id="tauxReductionNum" min="0" max="100" value="70" step="1" style="margin-top:8px;">
+      </div>
     </div>
 
     <div class="roi-grid">
@@ -501,27 +733,56 @@
         </div>
         <div class="barre-comp">
           <div class="top-row">
-            <span>Coût du forfait Maw3id</span>
-            <span id="labelForfait">—</span>
+            <span>Perte évitée estimée / an</span>
+            <span id="labelPerteEvitee">—</span>
           </div>
-          <div class="barre-track"><div class="barre-fill forfait" id="barreForfait" style="width:0%"></div></div>
+          <div class="barre-track"><div class="barre-fill evitee" id="barreEvitee" style="width:0%"></div></div>
+        </div>
+        <div class="barre-comp">
+          <div class="top-row">
+            <span>Coût total 1ʳᵉ année</span>
+            <span id="labelCoutAn1">—</span>
+          </div>
+          <div class="barre-track"><div class="barre-fill forfait" id="barreCoutAn1" style="width:0%"></div></div>
         </div>
       </div>
 
-      <div class="roi-resultat">
-        <div class="badge-verdict" id="verdict">—</div>
-        <div class="roi-chiffre">
-          <div class="valeur" id="roiPourcentage">—</div>
-          <div class="desc">Retour sur investissement estimé</div>
-        </div>
-        <div class="roi-details">
-          <div class="item">
-            <div class="n" id="economieNette">—</div>
-            <div class="l">Économie nette annuelle</div>
+      <div class="roi-resultats-grid">
+        <div class="roi-resultat">
+          <div class="roi-titre">1ʳᵉ année</div>
+          <div class="badge-verdict" id="verdictAn1">—</div>
+          <div class="roi-chiffre">
+            <div class="valeur" id="roiPourcentageAn1">—</div>
+            <div class="desc">Forfait × 12 + installation</div>
           </div>
-          <div class="item">
-            <div class="n" id="paybackMois">—</div>
-            <div class="l">Rentabilisé en</div>
+          <div class="roi-details">
+            <div class="item">
+              <div class="n" id="economieNetteAn1">—</div>
+              <div class="l">Économie nette</div>
+            </div>
+            <div class="item">
+              <div class="n" id="paybackAn1">—</div>
+              <div class="l">Rentabilisé en</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="roi-resultat">
+          <div class="roi-titre">Régime établi</div>
+          <div class="badge-verdict" id="verdictEtabli">—</div>
+          <div class="roi-chiffre">
+            <div class="valeur" id="roiPourcentageEtabli">—</div>
+            <div class="desc">Forfait × 12 seul</div>
+          </div>
+          <div class="roi-details">
+            <div class="item">
+              <div class="n" id="economieNetteEtabli">—</div>
+              <div class="l">Économie nette</div>
+            </div>
+            <div class="item">
+              <div class="n" id="paybackEtabli">—</div>
+              <div class="l">Rentabilisé en</div>
+            </div>
           </div>
         </div>
       </div>
@@ -545,29 +806,31 @@
       joursSemaine: { slider: document.getElementById('joursSemaine'), num: document.getElementById('joursSemaineNum'), aff: document.getElementById('valJoursSemaine'), suffix: '' },
       tauxNoShow: { slider: document.getElementById('tauxNoShow'), num: document.getElementById('tauxNoShowNum'), aff: document.getElementById('valTauxNoShow'), suffix: ' %' },
       valeurConsult: { slider: document.getElementById('valeurConsult'), num: document.getElementById('valeurConsultNum'), aff: document.getElementById('valValeurConsult'), suffix: ' MAD' },
-      coutForfait: { slider: document.getElementById('coutForfait'), num: document.getElementById('coutForfaitNum'), aff: document.getElementById('valCoutForfait'), suffix: ' MAD', formatAff: true }
+      forfaitMensuel: { slider: document.getElementById('forfaitMensuel'), num: document.getElementById('forfaitMensuelNum'), aff: document.getElementById('valForfaitMensuel'), suffix: ' MAD', formatAff: true },
+      fraisInstallation: { slider: null, num: document.getElementById('fraisInstallationNum'), aff: document.getElementById('valFraisInstallation'), suffix: ' MAD', formatAff: true },
+      tauxReduction: { slider: document.getElementById('tauxReduction'), num: document.getElementById('tauxReductionNum'), aff: document.getElementById('valTauxReduction'), suffix: ' %' }
     };
 
     function lierChamp(cle) {
       const c = champs[cle];
 
-      function depuisSlider() {
-        c.num.value = c.slider.value;
-        maj();
+      if (c.slider) {
+        c.slider.addEventListener('input', () => {
+          c.num.value = c.slider.value;
+          maj();
+        });
       }
 
-      function depuisNum() {
+      c.num.addEventListener('input', () => {
         let v = parseFloat(c.num.value);
         if (isNaN(v)) v = 0;
-        const min = parseFloat(c.slider.min);
-        const max = parseFloat(c.slider.max);
-        const clampedForSlider = Math.min(Math.max(v, min), max);
-        c.slider.value = clampedForSlider;
+        if (c.slider) {
+          const min = parseFloat(c.slider.min);
+          const max = parseFloat(c.slider.max);
+          c.slider.value = Math.min(Math.max(v, min), max);
+        }
         maj();
-      }
-
-      c.slider.addEventListener('input', depuisSlider);
-      c.num.addEventListener('input', depuisNum);
+      });
     }
 
     Object.keys(champs).forEach(lierChamp);
@@ -581,53 +844,22 @@
       Object.keys(champs).forEach((cle) => {
         const c = champs[cle];
         const v = getVal(cle);
-        if (c.formatAff) {
-          c.aff.textContent = fmtMAD(v);
-        } else if (cle === 'tauxNoShow') {
-          c.aff.textContent = fmtNombre(v) + c.suffix;
-        } else {
-          c.aff.textContent = fmtNombre(v) + c.suffix;
-        }
+        c.aff.textContent = c.formatAff ? fmtMAD(v) : fmtNombre(v) + c.suffix;
       });
     }
 
-    function calculer() {
-      const rdvJour = getVal('rdvJour');
-      const joursSemaine = getVal('joursSemaine');
-      const taux = getVal('tauxNoShow') / 100;
-      const valeurConsult = getVal('valeurConsult');
-      const coutForfait = getVal('coutForfait');
-
-      const semainesParMois = 52 / 12;
-      const rdvParMois = rdvJour * joursSemaine * semainesParMois;
-      const rdvManquesMois = rdvParMois * taux;
-      const perteMois = rdvManquesMois * valeurConsult;
-      const perteAn = perteMois * 12;
-
-      document.getElementById('resRdvMois').textContent = fmtNombre(rdvManquesMois) + ' RDV';
-      document.getElementById('resPerteMois').textContent = fmtMAD(perteMois);
-      document.getElementById('resPerteAn').textContent = fmtMAD(perteAn);
-
-      document.getElementById('labelPerteAn').textContent = fmtMAD(perteAn);
-      document.getElementById('labelForfait').textContent = fmtMAD(coutForfait);
-
-      const maxBarre = Math.max(perteAn, coutForfait, 1);
-      document.getElementById('barrePerte').style.width = Math.min((perteAn / maxBarre) * 100, 100) + '%';
-      document.getElementById('barreForfait').style.width = Math.min((coutForfait / maxBarre) * 100, 100) + '%';
-
-      const economieNette = perteAn - coutForfait;
-      document.getElementById('economieNette').textContent = fmtMAD(economieNette);
-
+    function calculerRoi(cout, perteEviteeAn, perteEviteeMois) {
+      const economieNette = perteEviteeAn - cout;
       let roiTexte = '—';
-      let verdictTexte = 'Renseignez vos données';
       let paybackTexte = '—';
+      let verdictTexte = 'Indiquez le coût';
 
-      if (coutForfait > 0) {
-        const roi = (economieNette / coutForfait) * 100;
+      if (cout > 0) {
+        const roi = (economieNette / cout) * 100;
         roiTexte = (roi >= 0 ? '+' : '') + fmtNombre(roi) + ' %';
 
-        if (perteMois > 0) {
-          const paybackMoisVal = coutForfait / perteMois;
+        if (perteEviteeMois > 0) {
+          const paybackMoisVal = cout / perteEviteeMois;
           if (paybackMoisVal <= 0.03) {
             paybackTexte = '< 1 jour';
           } else if (paybackMoisVal < 1) {
@@ -639,21 +871,64 @@
           paybackTexte = '—';
         }
 
-        if (perteAn > coutForfait) {
+        if (economieNette > 0) {
           verdictTexte = '✓ Investissement rentable';
-        } else if (perteAn === coutForfait) {
+        } else if (economieNette === 0) {
           verdictTexte = 'Équilibre atteint';
         } else {
-          verdictTexte = 'Perte inférieure au forfait';
+          verdictTexte = 'Perte évitée insuffisante';
         }
-      } else {
-        roiTexte = '—';
-        verdictTexte = 'Indiquez le coût du forfait';
       }
 
-      document.getElementById('roiPourcentage').textContent = roiTexte;
-      document.getElementById('paybackMois').textContent = paybackTexte;
-      document.getElementById('verdict').textContent = verdictTexte;
+      return { roiTexte, paybackTexte, verdictTexte, economieNette };
+    }
+
+    function calculer() {
+      const rdvJour = getVal('rdvJour');
+      const joursSemaine = getVal('joursSemaine');
+      const taux = getVal('tauxNoShow') / 100;
+      const valeurConsult = getVal('valeurConsult');
+      const forfaitMensuel = getVal('forfaitMensuel');
+      const fraisInstallation = getVal('fraisInstallation');
+      const tauxReduction = getVal('tauxReduction') / 100;
+
+      const semainesParMois = 52 / 12;
+      const rdvParMois = rdvJour * joursSemaine * semainesParMois;
+      const rdvManquesMois = rdvParMois * taux;
+      const perteMois = rdvManquesMois * valeurConsult;
+      const perteAn = perteMois * 12;
+
+      document.getElementById('resRdvMois').textContent = fmtNombre(rdvManquesMois) + ' RDV';
+      document.getElementById('resPerteMois').textContent = fmtMAD(perteMois);
+      document.getElementById('resPerteAn').textContent = fmtMAD(perteAn);
+
+      const coutAnnuelForfait = forfaitMensuel * 12;
+      const coutAn1 = coutAnnuelForfait + fraisInstallation;
+      const coutEtabli = coutAnnuelForfait;
+
+      const perteEviteeAn = perteAn * tauxReduction;
+      const perteEviteeMois = perteEviteeAn / 12;
+
+      document.getElementById('labelPerteAn').textContent = fmtMAD(perteAn);
+      document.getElementById('labelPerteEvitee').textContent = fmtMAD(perteEviteeAn);
+      document.getElementById('labelCoutAn1').textContent = fmtMAD(coutAn1);
+
+      const maxBarre = Math.max(perteAn, perteEviteeAn, coutAn1, 1);
+      document.getElementById('barrePerte').style.width = Math.min((perteAn / maxBarre) * 100, 100) + '%';
+      document.getElementById('barreEvitee').style.width = Math.min((perteEviteeAn / maxBarre) * 100, 100) + '%';
+      document.getElementById('barreCoutAn1').style.width = Math.min((coutAn1 / maxBarre) * 100, 100) + '%';
+
+      const resAn1 = calculerRoi(coutAn1, perteEviteeAn, perteEviteeMois);
+      document.getElementById('roiPourcentageAn1').textContent = resAn1.roiTexte;
+      document.getElementById('paybackAn1').textContent = resAn1.paybackTexte;
+      document.getElementById('verdictAn1').textContent = resAn1.verdictTexte;
+      document.getElementById('economieNetteAn1').textContent = fmtMAD(resAn1.economieNette);
+
+      const resEtabli = calculerRoi(coutEtabli, perteEviteeAn, perteEviteeMois);
+      document.getElementById('roiPourcentageEtabli').textContent = resEtabli.roiTexte;
+      document.getElementById('paybackEtabli').textContent = resEtabli.paybackTexte;
+      document.getElementById('verdictEtabli').textContent = resEtabli.verdictTexte;
+      document.getElementById('economieNetteEtabli').textContent = fmtMAD(resEtabli.economieNette);
     }
 
     function maj() {
@@ -662,6 +937,23 @@
     }
 
     maj();
+
+    const btnToggleRoi = document.getElementById('btnToggleRoi');
+    const roiPanel = document.getElementById('roiPanel');
+    const btnToggleLabel = btnToggleRoi.querySelector('.btn-toggle-label');
+
+    btnToggleRoi.addEventListener('click', () => {
+      const estActuellementOuvert = !roiPanel.hidden;
+      roiPanel.hidden = estActuellementOuvert;
+      btnToggleRoi.setAttribute('aria-expanded', String(!estActuellementOuvert));
+      btnToggleRoi.classList.toggle('ouvert', !estActuellementOuvert);
+      btnToggleLabel.textContent = estActuellementOuvert
+        ? 'Voir le retour sur investissement'
+        : 'Masquer le retour sur investissement';
+      if (!estActuellementOuvert) {
+        roiPanel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
   })();
 </script>
 
